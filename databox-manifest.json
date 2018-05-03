@@ -1,0 +1,57 @@
+{
+    "manifest-version": 1,
+    "name": "toshbrown-",
+    "version": "0.1.0",
+    "description": "",
+    "author": "Toshbrown",
+    "licence": "MIT",
+    "databox-type": "app",
+    "tags": "",
+    "homepage": "https://github.com/toshbrown/toshbrown-",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/toshbrown/toshbrown-.git"
+    },
+    "packages": [
+        {
+            "id": "3d8a5a73.32ee86",
+            "name": "new package",
+            "purpose": "",
+            "required": false,
+            "datastores": [
+                "bd32ff41.52caa",
+                "5973a888.d569c8",
+                "8e8426a8.f55fa8"
+            ],
+            "benefits": ""
+        }
+    ],
+    "allowed-combinations": [],
+    "datasources": [
+        {
+            "type": "twitterHashTagStream",
+            "required": true,
+            "name": "twitter",
+            "clientid": "bd32ff41.52caa",
+            "granularities": []
+        },
+        {
+            "type": "loadavg1",
+            "required": true,
+            "name": "osmonitor",
+            "clientid": "5973a888.d569c8",
+            "granularities": []
+        },
+        {
+            "type": "set-bulb-on",
+            "required": true,
+            "name": "bulbsout",
+            "clientid": "8e8426a8.f55fa8",
+            "granularities": []
+        }
+    ],
+    "network-permissions": [],
+    "resource-requirements": {},
+    "volumes": [],
+    "export-whitelist": []
+}
