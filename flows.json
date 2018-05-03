@@ -1,0 +1,100 @@
+[
+    {
+        "id": "3d8a5a73.32ee86",
+        "label": "new package",
+        "type": "tab"
+    },
+    {
+        "id": "bd32ff41.52caa",
+        "type": "twitter",
+        "z": "3d8a5a73.32ee86",
+        "name": "",
+        "subtype": "twitterHashTagStream",
+        "x": 92.5,
+        "y": 154,
+        "wires": [
+            [
+                "2fe2f401.15930c"
+            ]
+        ]
+    },
+    {
+        "id": "5973a888.d569c8",
+        "type": "osmonitor",
+        "z": "3d8a5a73.32ee86",
+        "name": "",
+        "subtype": "loadavg1",
+        "x": 86.5,
+        "y": 354,
+        "wires": [
+            [
+                "44425115.50703"
+            ]
+        ]
+    },
+    {
+        "id": "8e8426a8.f55fa8",
+        "type": "bulbsout",
+        "z": "3d8a5a73.32ee86",
+        "name": "",
+        "subtype": "set-bulb-on",
+        "value": "",
+        "x": 743.5,
+        "y": 202,
+        "wires": []
+    },
+    {
+        "id": "5c680f78.c6069",
+        "type": "debugger",
+        "z": "3d8a5a73.32ee86",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 393,
+        "y": 254,
+        "wires": []
+    },
+    {
+        "id": "44425115.50703",
+        "type": "extract",
+        "z": "3d8a5a73.32ee86",
+        "name": "",
+        "filters": [],
+        "x": 244,
+        "y": 323,
+        "wires": [
+            [
+                "5c680f78.c6069"
+            ]
+        ]
+    },
+    {
+        "id": "2fe2f401.15930c",
+        "type": "extract",
+        "z": "3d8a5a73.32ee86",
+        "name": "",
+        "filters": [
+            {
+                "sid": "bd32ff41.52caa",
+                "stype": "twitter",
+                "item": {
+                    "type": "string",
+                    "description": "a tweet",
+                    "name": "value"
+                },
+                "path": [
+                    "payload",
+                    "value"
+                ]
+            }
+        ],
+        "x": 242,
+        "y": 184,
+        "wires": [
+            [
+                "5c680f78.c6069"
+            ]
+        ]
+    }
+]
