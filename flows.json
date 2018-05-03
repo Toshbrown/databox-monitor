@@ -10,11 +10,12 @@
         "z": "3d8a5a73.32ee86",
         "name": "",
         "subtype": "twitterHashTagStream",
-        "x": 92.5,
-        "y": 154,
+        "x": 93,
+        "y": 162,
         "wires": [
             [
-                "2fe2f401.15930c"
+                "5c680f78.c6069",
+                "7d7ce52f.6d416c"
             ]
         ]
     },
@@ -23,12 +24,13 @@
         "type": "osmonitor",
         "z": "3d8a5a73.32ee86",
         "name": "",
-        "subtype": "loadavg1",
-        "x": 86.5,
-        "y": 354,
+        "subtype": "freemem",
+        "x": 84,
+        "y": 456,
         "wires": [
             [
-                "44425115.50703"
+                "5c680f78.c6069",
+                "36729342.16e30c"
             ]
         ]
     },
@@ -39,8 +41,8 @@
         "name": "",
         "subtype": "set-bulb-on",
         "value": "",
-        "x": 743.5,
-        "y": 202,
+        "x": 637,
+        "y": 268,
         "wires": []
     },
     {
@@ -51,50 +53,115 @@
         "active": true,
         "console": "false",
         "complete": "false",
-        "x": 393,
-        "y": 254,
+        "x": 409,
+        "y": 305,
         "wires": []
     },
     {
-        "id": "44425115.50703",
-        "type": "extract",
+        "id": "36729342.16e30c",
+        "type": "dbfunction",
         "z": "3d8a5a73.32ee86",
+        "ptype": {
+            "": []
+        },
         "name": "",
-        "filters": [],
-        "x": 244,
-        "y": 323,
+        "func": "return msg;",
+        "outputs": 1,
+        "inputtypedef": "",
+        "outputtypedef": "",
+        "noerr": 0,
+        "x": 448,
+        "y": 413,
         "wires": [
             [
-                "5c680f78.c6069"
+                "8e8426a8.f55fa8",
+                "498664e9.d9ef2c"
             ]
         ]
     },
     {
-        "id": "2fe2f401.15930c",
-        "type": "extract",
+        "id": "7d7ce52f.6d416c",
+        "type": "dbfunction",
         "z": "3d8a5a73.32ee86",
-        "name": "",
-        "filters": [
-            {
-                "sid": "bd32ff41.52caa",
-                "stype": "twitter",
-                "item": {
-                    "type": "string",
-                    "description": "a tweet",
-                    "name": "value"
+        "ptype": {
+            "": [
+                {
+                    "type": "identifier",
+                    "ordinal": "primary",
+                    "description": "a tweet or twitter username can be matched to an individual",
+                    "required": [
+                        "payload.value"
+                    ],
+                    "accretion": false
                 },
-                "path": [
-                    "payload",
-                    "value"
-                ]
-            }
-        ],
-        "x": 242,
-        "y": 184,
+                {
+                    "type": "personal",
+                    "subtype": "gender",
+                    "ordinal": "primary",
+                    "description": "a tweet or twitter username can be matched to gender",
+                    "required": [
+                        "payload.value"
+                    ],
+                    "accretion": false
+                }
+            ]
+        },
+        "name": "",
+        "func": "return msg;\n",
+        "outputs": 1,
+        "inputtypedef": "",
+        "outputtypedef": "{}",
+        "noerr": 0,
+        "x": 452,
+        "y": 141,
         "wires": [
             [
-                "5c680f78.c6069"
+                "8e8426a8.f55fa8",
+                "498664e9.d9ef2c"
             ]
         ]
+    },
+    {
+        "id": "8ca4888.74b3578",
+        "type": "bulbsin",
+        "z": "3d8a5a73.32ee86",
+        "name": "",
+        "subtype": "bulb-on",
+        "x": 95,
+        "y": 279,
+        "wires": [
+            [
+                "5c680f78.c6069",
+                "36729342.16e30c",
+                "7d7ce52f.6d416c"
+            ]
+        ]
+    },
+    {
+        "id": "5ae67863.e09a58",
+        "type": "bulbsin",
+        "z": "3d8a5a73.32ee86",
+        "name": "",
+        "subtype": "bulb-hue",
+        "x": 96,
+        "y": 359,
+        "wires": [
+            [
+                "5c680f78.c6069",
+                "36729342.16e30c",
+                "7d7ce52f.6d416c"
+            ]
+        ]
+    },
+    {
+        "id": "498664e9.d9ef2c",
+        "type": "bulbsout",
+        "z": "3d8a5a73.32ee86",
+        "name": "",
+        "subtype": "set-bulb-on",
+        "value": "",
+        "x": 640.5,
+        "y": 346,
+        "wires": []
     }
 ]
