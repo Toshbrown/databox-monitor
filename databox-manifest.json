@@ -7,10 +7,10 @@
     "licence": "MIT",
     "databox-type": "app",
     "tags": "",
-    "homepage": "https://github.com/toshbrown/toshbrown-",
+    "homepage": "https://github.com/toshbrown/databox-monitor",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/toshbrown/toshbrown-.git"
+        "url": "git+https://github.com/toshbrown/databox-monitor.git"
     },
     "packages": [
         {
@@ -21,7 +21,10 @@
             "datastores": [
                 "bd32ff41.52caa",
                 "5973a888.d569c8",
-                "8e8426a8.f55fa8"
+                "8e8426a8.f55fa8",
+                "8ca4888.74b3578",
+                "5ae67863.e09a58",
+                "498664e9.d9ef2c"
             ],
             "benefits": ""
         }
@@ -36,7 +39,7 @@
             "granularities": []
         },
         {
-            "type": "loadavg1",
+            "type": "freemem",
             "required": true,
             "name": "osmonitor",
             "clientid": "5973a888.d569c8",
@@ -47,6 +50,27 @@
             "required": true,
             "name": "bulbsout",
             "clientid": "8e8426a8.f55fa8",
+            "granularities": []
+        },
+        {
+            "type": "bulb-on",
+            "required": true,
+            "name": "bulbsin",
+            "clientid": "8ca4888.74b3578",
+            "granularities": []
+        },
+        {
+            "type": "bulb-hue",
+            "required": true,
+            "name": "bulbsin",
+            "clientid": "5ae67863.e09a58",
+            "granularities": []
+        },
+        {
+            "type": "set-bulb-on",
+            "required": true,
+            "name": "bulbsout",
+            "clientid": "498664e9.d9ef2c",
             "granularities": []
         }
     ],
