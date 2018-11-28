@@ -8,6 +8,29 @@
         "id": "bd32ff41.52caa",
         "type": "twitter",
         "z": "3d8a5a73.32ee86",
+        "ptype": {
+            "bd32ff41.52caa": [
+                {
+                    "type": "identifier",
+                    "ordinal": "primary",
+                    "description": "a tweet or twitter username can be matched to an individual",
+                    "required": [
+                        "payload.value"
+                    ],
+                    "accretion": false
+                },
+                {
+                    "type": "personal",
+                    "subtype": "gender",
+                    "ordinal": "primary",
+                    "description": "a tweet or twitter username can be matched to gender",
+                    "required": [
+                        "payload.value"
+                    ],
+                    "accretion": false
+                }
+            ]
+        },
         "name": "",
         "subtype": "twitterHashTagStream",
         "x": 93,
@@ -23,6 +46,7 @@
         "id": "5973a888.d569c8",
         "type": "osmonitor",
         "z": "3d8a5a73.32ee86",
+        "ptype": [],
         "name": "",
         "subtype": "freemem",
         "x": 84,
@@ -62,7 +86,27 @@
         "type": "dbfunction",
         "z": "3d8a5a73.32ee86",
         "ptype": {
-            "": []
+            "": [
+                {
+                    "type": "personal",
+                    "subtype": "behaviour",
+                    "ordinal": "secondary",
+                    "description": "bulb on/off data can provide an indicator of routine and room occupancy",
+                    "required": [
+                        "payload.value"
+                    ],
+                    "conditions": [
+                        {
+                            "accuracy": 0.9,
+                            "granularity": {
+                                "threshold": -1,
+                                "unit": "none"
+                            }
+                        }
+                    ],
+                    "accretion": true
+                }
+            ]
         },
         "name": "",
         "func": "return msg;",
@@ -103,6 +147,25 @@
                         "payload.value"
                     ],
                     "accretion": false
+                },
+                {
+                    "type": "personal",
+                    "subtype": "behaviour",
+                    "ordinal": "secondary",
+                    "description": "bulb on/off data can provide an indicator of routine and room occupancy",
+                    "required": [
+                        "payload.value"
+                    ],
+                    "conditions": [
+                        {
+                            "accuracy": 0.9,
+                            "granularity": {
+                                "threshold": -1,
+                                "unit": "none"
+                            }
+                        }
+                    ],
+                    "accretion": true
                 }
             ]
         },
@@ -125,6 +188,29 @@
         "id": "8ca4888.74b3578",
         "type": "bulbsin",
         "z": "3d8a5a73.32ee86",
+        "ptype": {
+            "8ca4888.74b3578": [
+                {
+                    "type": "personal",
+                    "subtype": "behaviour",
+                    "ordinal": "secondary",
+                    "description": "bulb on/off data can provide an indicator of routine and room occupancy",
+                    "required": [
+                        "payload.value"
+                    ],
+                    "conditions": [
+                        {
+                            "accuracy": 0.9,
+                            "granularity": {
+                                "threshold": -1,
+                                "unit": "none"
+                            }
+                        }
+                    ],
+                    "accretion": true
+                }
+            ]
+        },
         "name": "",
         "subtype": "bulb-on",
         "x": 95,
@@ -141,6 +227,9 @@
         "id": "5ae67863.e09a58",
         "type": "bulbsin",
         "z": "3d8a5a73.32ee86",
+        "ptype": {
+            "5ae67863.e09a58": []
+        },
         "name": "",
         "subtype": "bulb-hue",
         "x": 96,
